@@ -26,8 +26,8 @@ export const cartSlice = createSlice({
       state.totalQuantity -= 1;
       state.items = [];
       saveStateToLocalStorage(state); // Save updated state to localStorage
-    }
-  }
+    },
+  },
 });
 
 export const { increment, decrement } = cartSlice.actions;

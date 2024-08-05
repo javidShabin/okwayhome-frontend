@@ -77,12 +77,8 @@ const ChatPage = () => {
     getUserId();
   }, []);
 
-  // Fetch messages when userId changes
-  useEffect(() => {
-    if (userId) {
-      fetchMessages();
-    }
-  }, [userId]);
+  fetchMessages();
+
 
   return (
     <div className="flex flex-col h-screen md:h-[88vh] w-full bg-gray-100">
