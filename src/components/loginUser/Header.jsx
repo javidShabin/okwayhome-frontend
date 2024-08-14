@@ -7,6 +7,9 @@ const UserHeader = () => {
   // Show menubar function state
   const [showMenu, setShowMenu] = useState(false);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const profileImage = useSelector((state) => state.profile.image);
+
+  console.log(profileImage, "'''profile iahe");
 
   // Menubar toggle function
   const toggleMenu = () => {
@@ -37,7 +40,7 @@ const UserHeader = () => {
         {/* Icons */}
         <div className="icon flex gap-5 md:gap-10 items-center ">
           <div className="hidden sm:block">
-            <Link to={'/user/chat'}>
+            <Link to={"/user/chat"}>
               <div className="bg-orange-400 rounded-full p-3 shadow-lg hover:bg-orange-500 transition-all duration-300">
                 <MessagesSquare className="text-white w-6 h-6" />
               </div>
@@ -53,7 +56,13 @@ const UserHeader = () => {
             )}
           </Link>
           <Link to={"/user/profile"}>
-            <CircleUser />
+            <div className="w-[40px] h-[40px]">
+              <img
+                src={profileImage}
+                className="rounded-full w-full h-full object-cover"
+                alt="Profile"
+              />
+            </div>
           </Link>
 
           {/* Menu Icon for Mobile */}
@@ -77,7 +86,7 @@ const UserHeader = () => {
           <Link to={"/products"}>
             <li onClick={toggleMenu}>Furnitures</li>
           </Link>
-          <Link to={'/user/chat'} onClick={toggleMenu} >
+          <Link to={"/user/chat"} onClick={toggleMenu}>
             <li className="bg-orange-400 rounded-full p-3 shadow-lg hover:bg-orange-500 transition-all duration-300">
               <MessagesSquare className="text-white w-6 h-6" />
             </li>

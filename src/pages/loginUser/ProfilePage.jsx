@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { axiosInstants } from "../../config/axiosInstants";
 import { useNavigate } from "react-router-dom";
 import EditProfile from "../../components/loginUser/EditProfile";
+import { useDispatch } from "react-redux";
+import { setProfileImage } from "../../redux/features/profileSlice";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
   const [userProfile, setUserProfile] = useState(null);
   const [profileEdit, setProfileEdit] = useState(false);
+  const dispatch = useDispatch();
   const [error, setError] = useState(null);
 
   // User profile get function
@@ -17,6 +20,7 @@ const ProfilePage = () => {
         url: "/user/profile",
       });
       setUserProfile(response.data);
+      dispatch(setProfileImage(response.data.image));
     } catch (error) {
       setError("Failed to fetch user profile.");
       console.error(error);
@@ -102,7 +106,7 @@ const ProfilePage = () => {
             >
               ✕ {/* Close button */}
             </button>
-            <EditProfile/>
+            <EditProfile />
           </div>
         </div>
       )}
