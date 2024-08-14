@@ -64,7 +64,7 @@ export default function EditProfile() {
   };
 
   return (
-    <div className="flex justify-center items-center h-[87vh] bg-gray-100">
+    <div className="flex justify-center items-center h-[87vh]">
       {userData && (
         <div className="flex flex-col items-center mb-6">
           <img
@@ -82,7 +82,7 @@ export default function EditProfile() {
       >
         <label className="mb-1 font-medium text-gray-700">Name</label>
         <input
-          className="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-orange-500"
           type="text"
           placeholder="Name"
           {...register("name", { required: "Name is required" })}
@@ -93,7 +93,7 @@ export default function EditProfile() {
 
         <label className="mb-1 font-medium text-gray-700">Email</label>
         <input
-          className="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-orange-500"
           type="email"
           placeholder="Email"
           {...register("email", { required: "Email is required" })}
@@ -104,7 +104,7 @@ export default function EditProfile() {
 
         <label className="mb-1 font-medium text-gray-700">Phone</label>
         <input
-          className="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-orange-500"
           type="tel"
           placeholder="Phone"
           {...register("phone", { required: "Phone number is required" })}
@@ -119,7 +119,7 @@ export default function EditProfile() {
         <input
           type="submit"
           value="Update Profile"
-          className="bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 cursor-pointer w-full transition duration-300"
+          className="bg-orange-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-orange-600 cursor-pointer w-full transition duration-300"
         />
       </form>
     </div>
