@@ -32,3 +32,5 @@ const itemData = [
         name: "Chair"
     },
 ]
+
+export default itemData

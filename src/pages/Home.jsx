@@ -1,5 +1,6 @@
 import React from "react";
 import { hero } from "../assets";
+import FilteredItems from "../components/FilteredItems";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
           </h2>
         </div>
       </main>
+      <FilteredItems/>
     </>
   );
 };

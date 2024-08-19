@@ -19,7 +19,7 @@ const UserHeader = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden sm:flex font-semibold gap-10 sm:gap-16 cursor-pointer">
-          <Link to="">
+          <Link to={"/"}>
             <li>Home</li>
           </Link>
           <Link to={""}>

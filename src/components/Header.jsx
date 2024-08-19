@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [changeMenu, setChangeMenu] = useState(false);
@@ -16,9 +16,15 @@ const Header = () => {
 
         {/* Desktop menu */}
         <ul className="hidden sm:flex font-semibold gap-10 sm:gap-16 cursor-pointer">
-          <li>Home</li>
-          <li>About</li>
-          <li>Furnitures</li>
+          <Link to={"/"}>
+            <li>Home</li>
+          </Link>
+          <Link to={""}>
+            <li>About</li>
+          </Link>
+          <Link to={""}>
+            <li>Furnitures</li>
+          </Link>
         </ul>
 
         {/* Join button */}
