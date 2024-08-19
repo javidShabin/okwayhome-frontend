@@ -11,7 +11,7 @@ const Userlayout = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const { isUserExist } = useSelector((state) => state.user);
-console.log(isUserExist)
+
   const checkUser = async () => {
     try {
       await axiosInstants({

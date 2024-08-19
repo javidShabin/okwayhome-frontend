@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Userlayout from "../layout/Userlayout";
 import Home from "../pages/Home";
-import Signup from "../pages/Signup";
-import Login from "../pages/Login";
 import AuthUser from "./protectedRoutes/AuthUser";
+import SignupPage from "../pages/Signup";
+import LoginPage from "../pages/Login";
 
 export const router = createBrowserRouter([
   {
@@ -17,11 +17,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "register",
-        element: <Signup/>
+        element: <SignupPage/>
       },
       {
         path: "login",
-        element: <Login/>
+        element: <LoginPage/>
       },
 
       {
