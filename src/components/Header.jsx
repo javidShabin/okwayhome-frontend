@@ -11,7 +11,8 @@ const Header = () => {
   return (
     <header className="flex justify-center items-center py-3 sm:py-4 shadow-lg sticky top-0 left-0 bg-[#fff6df] z-10">
       <div className="container flex justify-between items-center w-[95%] ">
-        <div className="logo font-semibold text-[20px]">OkwayHome</div>
+        {/* Logo */}
+        <div className="logo font-bold text-[20px]">OkwayHome</div>
 
         {/* Desktop menu */}
         <ul className="hidden sm:flex font-semibold gap-10 sm:gap-16 cursor-pointer">

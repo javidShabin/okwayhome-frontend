@@ -15,7 +15,7 @@ const UserHeader = () => {
     <header className="flex justify-center items-center py-3 sm:py-4 md:py-6 shadow-lg sticky top-0 left-0 bg-white z-10">
       <div className="container flex justify-between items-center w-[95%]">
         {/* Logo */}
-        <div className="logo">logo</div>
+        <div className="logo font-bold text-[20px]">OkwayHome</div>
 
         {/* Desktop Menu */}
         <ul className="hidden sm:flex font-semibold gap-10 sm:gap-16 cursor-pointer">
