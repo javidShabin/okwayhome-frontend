@@ -3,6 +3,7 @@ import { hero } from "../assets";
 import FilteredItems from "../components/FilteredItems";
 import About from "./About";
 import Product from "../components/Product";
+import Review from "./Review";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       </main>
       <FilteredItems/>
       <About/>
+      <Review/>
       <Product/>
     </>
   );

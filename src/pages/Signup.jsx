@@ -21,7 +21,7 @@ export default function SignupPage() {
       toast.success("Create user")
       navigate('/')
     } catch (error) {
-      toast.error("error")
+      toast.error(error.response.data.message)
       console.log(error);
     }
   };

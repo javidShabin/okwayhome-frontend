@@ -44,7 +44,7 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div className="flex flex-col items-center justify-center min-h-[88vh] bg-gray-100 p-4">
       <div className="bg-white shadow-xl rounded-lg p-8 max-w-md w-full">
         <h1 className="text-3xl font-bold text-center mb-4">Profile</h1>
         <div className="flex items-center justify-center mb-6">
