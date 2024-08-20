@@ -42,7 +42,7 @@ const ProductDetails = () => {
   };
 
   // Add to Cart
-  const addToCart = async (product, ItemName, price) => {
+  const addToCart = async (product, ItemName) => {
     try {
       const response = await axiosInstants({
         method: "POST",
