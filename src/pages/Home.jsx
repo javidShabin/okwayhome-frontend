@@ -1,6 +1,7 @@
 import React from "react";
 import { hero } from "../assets";
 import FilteredItems from "../components/FilteredItems";
+import About from "./About";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         </div>
       </main>
       <FilteredItems/>
+      <About/>
     </>
   );
 };

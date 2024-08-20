@@ -11,18 +11,20 @@ const UserHeader = () => {
     setShowMenu((prevShowMenu) => !prevShowMenu);
   };
 
+  // bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-lg sticky top-0 z-10
+
   return (
-    <header className="flex justify-center items-center py-3 sm:py-4 md:py-6 shadow-lg sticky top-0 left-0 bg-white z-10">
+    <header className="flex justify-center items-center bg-[#fff6d6] py-3 sm:py-4 md:py-6 shadow-lg sticky top-0 left-0 z-10">
       <div className="container flex justify-between items-center w-[95%]">
         {/* Logo */}
-        <div className="logo font-bold text-[20px]">OkwayHome</div>
+        <div className="logo font-bold text-[20px] ">OkwayHome</div>
 
         {/* Desktop Menu */}
         <ul className="hidden sm:flex font-semibold gap-10 sm:gap-16 cursor-pointer">
           <Link to={"/"}>
             <li>Home</li>
           </Link>
-          <Link to={""}>
+          <Link to={"/about"}>
             <li>About</li>
           </Link>
           <Link to={""}>

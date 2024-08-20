@@ -4,6 +4,8 @@ import sofa from "./sofa.jpeg"
 import table from "./table.jpeg"
 import teapoy from "./teapoy.jpeg"
 import chair from "./chair.webp"
+import about1 from "./about1.jpeg"
+import about2 from "./about2.jpeg"
 
 export{
     hero,
@@ -11,5 +13,7 @@ export{
     sofa,
     table,
     teapoy,
-    chair
+    chair,
+    about1,
+    about2
 }
