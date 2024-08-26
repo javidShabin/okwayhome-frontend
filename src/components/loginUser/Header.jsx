@@ -77,7 +77,7 @@ const UserHeader = () => {
           <Link to={""}>
             <li onClick={toggleMenu}>Furnitures</li>
           </Link>
-          <Link onClick={toggleMenu} to="/user/customer-care">
+          <Link to={'/user/chat'} onClick={toggleMenu} >
             <li className="bg-orange-400 rounded-full p-3 shadow-lg hover:bg-orange-500 transition-all duration-300">
               <MessagesSquare className="text-white w-6 h-6" />
             </li>
