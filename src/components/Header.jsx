@@ -22,7 +22,7 @@ const Header = () => {
           <Link to={"/about"}>
             <li>About</li>
           </Link>
-          <Link to={""}>
+          <Link to={"/products"}>
             <li>Furnitures</li>
           </Link>
         </ul>
@@ -55,7 +55,7 @@ const Header = () => {
           <Link to={"/about"}>
             <li onClick={toggleMenuButton}>About</li>
           </Link>
-          <Link to={""}>
+          <Link to={"/products"}>
             <li onClick={toggleMenuButton}>Furnitures</li>
           </Link>
         </ul>

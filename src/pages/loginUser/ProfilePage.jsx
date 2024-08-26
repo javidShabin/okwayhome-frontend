@@ -34,6 +34,11 @@ const ProfilePage = () => {
     }
   };
 
+  // Edite user profile
+  const editProfileHandler = () => {
+    
+  }
+
   useEffect(() => {
     getUserProfile();
   }, []);
@@ -66,7 +71,7 @@ const ProfilePage = () => {
         {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
 
         {/* Edit Profile Button */}
-        <button className="mt-4 w-full px-4 py-2 text-black rounded hover:bg-orange-700 transition duration-300 ease-in-out border-2 border-orange-400 ">
+        <button onClick={editProfileHandler} className="mt-4 w-full px-4 py-2 text-black rounded hover:bg-orange-700 transition duration-300 ease-in-out border-2 border-orange-400 ">
           Edit Profile
         </button>
 

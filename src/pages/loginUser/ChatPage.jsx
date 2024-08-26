@@ -115,17 +115,17 @@ const ChatPage = () => {
                 }`}
               >
                 <div
-                  className={`max-w-md px-4 py-3 rounded-3xl shadow-lg ${
+                  className={`max-w-[75%] sm:max-w-[65%] md:max-w-[55%] lg:max-w-[45%] px-4 py-3 rounded-lg shadow-md transition-all duration-200 ${
                     msg.sender === sender
-                      ? "bg-blue-600 text-white"
-                      : "bg-white text-gray-800"
+                      ? "bg-orange-400 text-white font-semibold "
+                      : "bg-purple-100 text-gray-800 border border-purple-300"
                   }`}
                 >
-                  <div className="text-sm font-light text-right">
+                  <div className="text-xs font-bold mb-1 text-left">
                     {msg.sender === sender ? "You" : msg.sender}
                   </div>
-                  <div className="mt-2">{msg.message}</div>
-                  <div className="text-xs text-gray-400 mt-1 text-right">
+                  <div className="text-sm leading-relaxed">{msg.message}</div>
+                  <div className="text-xs text-gray-500 mt-1 text-right">
                     {new Date(msg.createdAt).toLocaleTimeString([], {
                       hour: "2-digit",
                       minute: "2-digit",
@@ -155,7 +155,7 @@ const ChatPage = () => {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-blue-700 text-xs sm:text-base"
+            className="bg-orange-400 text-white font-semibold px-4 py-2 rounded-full hover:bg-orange-500 text-xs sm:text-base"
           >
             Send
           </button>

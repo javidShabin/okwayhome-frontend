@@ -29,7 +29,7 @@ const UserHeader = () => {
           <Link to={"/about"}>
             <li>About</li>
           </Link>
-          <Link to={""}>
+          <Link to={"/products"}>
             <li>Furnitures</li>
           </Link>
         </ul>
@@ -74,7 +74,7 @@ const UserHeader = () => {
           <Link to={"/about"}>
             <li onClick={toggleMenu}>About</li>
           </Link>
-          <Link to={""}>
+          <Link to={"/products"}>
             <li onClick={toggleMenu}>Furnitures</li>
           </Link>
           <Link to={'/user/chat'} onClick={toggleMenu} >
