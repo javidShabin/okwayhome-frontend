@@ -49,15 +49,15 @@ const Header = () => {
       {/* Mobile Menu */}
       {changeMenu && (
         <ul className="absolute top-[100%] left-0 w-full bg-white shadow-lg flex flex-col items-center gap-6 py-6 font-semibold sm:hidden transition duration-300 ease-in-out">
-          <li
-            onClick={() => {
-              toggleMenuButton();
-            }}
-          >
-            Home
-          </li>
-          <li onClick={toggleMenuButton}>About</li>
-          <li onClick={toggleMenuButton}>Restaurants</li>
+          <Link to={"/"}>
+            <li onClick={toggleMenuButton}>Home</li>
+          </Link>
+          <Link to={"/about"}>
+            <li onClick={toggleMenuButton}>About</li>
+          </Link>
+          <Link to={""}>
+            <li onClick={toggleMenuButton}>Furnitures</li>
+          </Link>
         </ul>
       )}
     </header>

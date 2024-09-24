@@ -53,14 +53,14 @@ const UserHeader = () => {
       {/* Mobile Menu */}
       {showMenu && (
         <ul className="absolute top-[100%] left-0 w-full bg-white shadow-lg flex flex-col items-center gap-6 py-6 font-semibold sm:hidden transition duration-300 ease-in-out">
-          <Link onClick={toggleMenu}>
-            <li>Home</li>
+          <Link to={"/"}>
+            <li onClick={toggleMenu}>Home</li>
           </Link>
-          <Link onClick={toggleMenu}>
-            <li>About</li>
+          <Link to={"/about"}>
+            <li onClick={toggleMenu}>About</li>
           </Link>
-          <Link onClick={toggleMenu}>
-            <li>Restaurants</li>
+          <Link to={""}>
+            <li onClick={toggleMenu}>Furnitures</li>
           </Link>
         </ul>
       )}

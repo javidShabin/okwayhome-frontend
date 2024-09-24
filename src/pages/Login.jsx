@@ -19,7 +19,7 @@ export default function LoginPage() {
         data,
       });
       toast.success("user logged in");
-      navigate("/user");
+      navigate("/");
     } catch (error) {
       toast.error("login filed");
       console.log(error);
