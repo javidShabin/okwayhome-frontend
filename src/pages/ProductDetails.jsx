@@ -91,38 +91,41 @@ const ProductDetails = () => {
         <h2 className="text-xl font-bold text-gray-800 mb-2">
           Related Products
         </h2>
-        {/* Add related products here */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProduct.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105"
-            >
-              <div className="relative">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-0 right-0 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-bl-lg">
-                  ${item.price}
+        <div className="max-h-96 py-3 px-3 overflow-y-auto">
+          {" "}
+          {/* Ensure only vertical scrolling */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProduct.map((item) => (
+              <div
+                key={item._id}
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105"
+              >
+                <div className="relative">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute top-0 right-0 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-bl-lg">
+                    ${item.price}
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {item.name}
+                  </h3>
+                  <p className="text-gray-600 mb-2">
+                    {item.description.substring(0, 60)}...
+                  </p>
+                  <div className="flex justify-between items-center mt-4">
+                    <button className="bg-orange-600 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-700 transition duration-200">
+                      Add to cart
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {item.name}
-                </h3>
-                <p className="text-gray-600 mb-2">
-                  {item.description.substring(0, 60)}...
-                </p>
-                <div className="flex justify-between items-center mt-4">
-                  <button className="bg-orange-600 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-700 transition duration-200">
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
