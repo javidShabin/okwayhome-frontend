@@ -34,10 +34,10 @@ const UserHeader = () => {
 
         {/* Icons */}
         <div className="icon flex gap-5 md:gap-10">
-          <Link>
+          <Link to={'/user/cart'}>
             <ShoppingBag />
           </Link>
-          <Link>
+          <Link to={'/user/profile'}>
             <CircleUser />
           </Link>
 
