@@ -1,26 +1,57 @@
-import React, { useEffect } from 'react'
-import { axiosInstants } from '../config/axiosInstants'
+import React, { useEffect, useState } from 'react';
+import { axiosInstants } from '../config/axiosInstants';
 
 const Product = () => {
-    const getAllProducts = async () => {
-        try {
-            const response = await axiosInstants({
-                method: "GET",
-                url: "/product/list"
-            })
-            console.log(response, "====response")
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    useEffect(()=>{
-        getAllProducts()
-    },[])
-  return (
-    <main>
-      
-    </main>
-  )
-}
+  const [products, setProducts] = useState([]);
 
-export default Product
+  const getAllProducts = async () => {
+    try {
+      const response = await axiosInstants({
+        method: 'GET',
+        url: '/product/list',
+      });
+      setProducts(response.data); // Assuming the response contains product data in 'data'
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
+  return (
+    <main className="px-4 py-8 bg-white min-h-screen">
+      <h1 className="text-4xl font-semibold text-center mb-8 text-gray-900">Our Modern Collection</h1>
+      <div className="flex flex-wrap justify-center gap-8">
+        {products.length > 0 ? (
+          products.map((product) => (
+            <div
+              key={product.id}
+              className="w-full sm:w-64 bg-gray-100 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:scale-105"
+            >
+              <div className="w-full h-64 bg-white">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover rounded-t-lg"
+                />
+              </div>
+              <div className="p-4 flex flex-col items-center text-center">
+                <h2 className="text-lg font-medium text-gray-800">{product.name}</h2>
+                <p className="text-gray-600 mt-2">${product.price}</p>
+                <button className="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                  Details
+                </button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-gray-500">No products available</p>
+        )}
+      </div>
+    </main>
+  );
+};
+
+export default Product;

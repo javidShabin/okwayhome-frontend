@@ -2,6 +2,7 @@ import React from "react";
 import { hero } from "../assets";
 import FilteredItems from "../components/FilteredItems";
 import About from "./About";
+import Product from "../components/Product";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       </main>
       <FilteredItems/>
       <About/>
+      <Product/>
     </>
   );
 };
