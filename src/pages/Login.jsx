@@ -64,13 +64,13 @@ export default function LoginPage() {
 
         <p className="text-gray-500">
           New user?{" "}
-          <Link to={"/signup"}>
-            <span className="text-gray-400">Signup</span>
+          <Link to={"/register"}>
+            <span className="text-orange-400">Signup</span>
           </Link>
         </p>
 
         <input
-          className="bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg hover:bg-orange-500 cursor-pointer w-[100px] transition duration-300 mt-2"
+          className="bg-orange-400 text-white font-semibold py-3 px-6 rounded-lg hover:bg-orange-500 cursor-pointer w-[100px] transition duration-300 mt-2"
           type="submit"
           value="Submit"
         />
