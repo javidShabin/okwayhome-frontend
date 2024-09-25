@@ -14,7 +14,7 @@ const UserHeader = () => {
   // bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-lg sticky top-0 z-10
 
   return (
-    <header className="flex justify-center items-center bg-[#fff6d6] py-3 sm:py-4 md:py-6 shadow-lg sticky top-0 left-0 z-10">
+    <header className="flex justify-center items-center bg-[#eeebe0] py-3 sm:py-4 md:py-6 shadow-lg sticky top-0 left-0 z-10">
       <div className="container flex justify-between items-center w-[95%]">
         {/* Logo */}
         <div className="logo font-bold text-[20px] ">OkwayHome</div>

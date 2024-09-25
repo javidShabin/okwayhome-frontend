@@ -5,6 +5,7 @@ import AuthUser from "./protectedRoutes/AuthUser";
 import SignupPage from "../pages/Signup";
 import LoginPage from "../pages/Login";
 import About from "../pages/About";
+import Product from "../components/Product";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <LoginPage/>
+      },
+      {
+        path: "products",
+        element: <Product/>
       },
 
       {
