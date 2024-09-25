@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   const getAllProducts = async () => {
     try {
@@ -13,8 +14,10 @@ const Product = () => {
         url: "/product/list",
       });
       setProducts(response.data); // Assuming the response contains product data in 'data'
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
@@ -22,6 +25,13 @@ const Product = () => {
     getAllProducts();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <span className="loading loading-dots loading-lg bg-gradient-to-r from-yellow-500 to-orange-600 "></span>
+      </div>
+    ); // Optionally show a loading indicator
+  }
   return (
     <main className="px-4 py-8 bg-white min-h-screen">
       <h1 className="text-4xl font-semibold text-center mb-8 text-gray-900">
@@ -46,9 +56,14 @@ const Product = () => {
                   {product.name}
                 </h2>
                 <p className="text-gray-600 mt-2">${product.price}</p>
-                  <button onClick={()=>{navigate(`/product-details/${product._id}`)}} className="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors">
-                    Details
-                  </button>
+                <button
+                  onClick={() => {
+                    navigate(`/product-details/${product._id}`);
+                  }}
+                  className="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors"
+                >
+                  Details
+                </button>
               </div>
             </div>
           ))
