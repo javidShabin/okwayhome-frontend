@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { CircleUser, Menu, ShoppingBag, X } from "lucide-react";
+import { CircleUser, Menu, MessagesSquare, ShoppingBag, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const UserHeader = () => {
   // Show menubar function state
   const [showMenu, setShowMenu] = useState(false);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  console.log(totalQuantity, "===total");
 
   // Menubar toggle function
   const toggleMenu = () => {
@@ -34,10 +37,19 @@ const UserHeader = () => {
 
         {/* Icons */}
         <div className="icon flex gap-5 md:gap-10">
-          <Link to={'/user/cart'}>
-            <ShoppingBag />
+          <Link>
+            <MessagesSquare />
           </Link>
-          <Link to={'/user/profile'}>
+          {/* Cart Icon with Cart Count */}
+          <Link to={"/user/cart"} className="relative">
+            <ShoppingBag />
+            {totalQuantity > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {totalQuantity}
+              </span>
+            )}
+          </Link>
+          <Link to={"/user/profile"}>
             <CircleUser />
           </Link>
 

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { axiosInstants } from "../../config/axiosInstants";
 import { Trash2 } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { decrement } from "../../redux/features/cartSlice";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const dispatch = useDispatch()
   const deliveryCharge = 50;
 
   const getDataFromCart = async () => {
@@ -30,6 +33,7 @@ const CartPage = () => {
           items: [{ product, quantity: newQuantity }],
         },
       });
+
       getDataFromCart(); // Refetch cart data after update
     } catch (error) {
       console.error("Error updating cart item quantity:", error);
@@ -43,8 +47,8 @@ const CartPage = () => {
         url: `/cart/remove`,
         data: { product },
       });
-      console.log(response, "==delete");
       getDataFromCart(); // Refetch cart data after removal
+      dispatch(decrement())
     } catch (error) {
       console.error("Error removing cart item:", error);
     }

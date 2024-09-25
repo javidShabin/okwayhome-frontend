@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosInstants } from "../config/axiosInstants";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { increment } from "../redux/features/cartSlice";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -10,6 +12,7 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const getProductDetails = async () => {
     try {
@@ -56,6 +59,7 @@ const ProductDetails = () => {
       });
       console.log(response, "===response");
       toast.success('Item added to cart')
+      dispatch(increment())
     } catch (error) {
       console.log(error)
       toast.error(error.response.data.message)
