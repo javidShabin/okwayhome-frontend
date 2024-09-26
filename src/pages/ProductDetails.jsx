@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { axiosInstants } from "../config/axiosInstants";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -8,6 +9,7 @@ const ProductDetails = () => {
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate()
 
   const getProductDetails = async () => {
     try {
@@ -33,6 +35,34 @@ const ProductDetails = () => {
       setFilteredProduct(response.data);
     } catch (error) {
       console.error("Failed to fetch related products");
+    }
+  };
+
+  // Add to Cart
+  const addToCart = async (product, ItemName, price) => {
+    try {
+      const response = await axiosInstants({
+        method: "POST",
+        url: "/cart/addcart",
+        data: {
+          items: [
+            {
+              product: product,
+              ItemName: ItemName,
+              quantity: 1,
+            },
+          ],
+        },
+      });
+      console.log(response, "===response");
+      toast.success('Item added to cart')
+    } catch (error) {
+      console.log(error)
+      toast.error(error.response.data.message)
+      // If user not autherized then navigate login page
+      if (error.response.data.message === "user not autherized") {
+        navigate('/login')
+      }
     }
   };
 
@@ -81,7 +111,12 @@ const ProductDetails = () => {
             </p>
             <p className="text-gray-700 mb-6">{product.description}</p>
           </div>
-          <button className="bg-orange-600 text-white py-3 px-6 rounded-lg shadow hover:bg-orange-700 transition duration-200 flex items-center justify-center">
+          <button
+            onClick={() => {
+              addToCart(product._id, product.price, product.name);
+            }}
+            className="bg-orange-600 text-white py-3 px-6 rounded-lg shadow hover:bg-orange-700 transition duration-200 flex items-center justify-center"
+          >
             <span className="mr-2">🛒</span>
             Add to Cart
           </button>
@@ -118,7 +153,12 @@ const ProductDetails = () => {
                     {item.description.substring(0, 60)}...
                   </p>
                   <div className="flex justify-between items-center mt-4">
-                    <button className="bg-orange-600 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-700 transition duration-200">
+                    <button
+                      onClick={() => {
+                        addToCart(item._id, item.name, item.price);
+                      }}
+                      className="bg-orange-600 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-700 transition duration-200"
+                    >
                       Add to cart
                     </button>
                   </div>
