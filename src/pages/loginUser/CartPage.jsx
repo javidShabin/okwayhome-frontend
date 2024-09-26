@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { axiosInstants } from "../../config/axiosInstants";
+import { Trash2 } from "lucide-react";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -22,7 +23,7 @@ const CartPage = () => {
   const updateCartItemQuantity = async (product, newQuantity) => {
     try {
       if (newQuantity < 1) return;
-      const response = await axiosInstants({
+      await axiosInstants({
         method: "PUT",
         url: "/cart/update",
         data: {
@@ -42,6 +43,7 @@ const CartPage = () => {
         url: `/cart/remove`,
         data: { product },
       });
+      console.log(response, "==delete");
       getDataFromCart(); // Refetch cart data after removal
     } catch (error) {
       console.error("Error removing cart item:", error);
@@ -124,12 +126,12 @@ const CartPage = () => {
                     <td className="py-4 px-6">₹{item.price}</td>
                     <td className="py-4 px-6">₹{item.price * item.quantity}</td>
                     <td className="py-4 px-6 text-right">
-                      <button
-                        className="text-red-600 hover:text-red-800"
-                        onClick={() => removeCartItem(item.product)}
-                      >
-                        Remove
-                      </button>
+                      <Trash2
+                        onClick={() => {
+                          removeCartItem(item.product);
+                        }}
+                        className="text-red-500"
+                      />
                     </td>
                   </tr>
                 ))}
