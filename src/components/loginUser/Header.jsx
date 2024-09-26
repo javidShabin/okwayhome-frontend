@@ -7,7 +7,6 @@ const UserHeader = () => {
   // Show menubar function state
   const [showMenu, setShowMenu] = useState(false);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  console.log(totalQuantity, "===total");
 
   // Menubar toggle function
   const toggleMenu = () => {
@@ -17,7 +16,7 @@ const UserHeader = () => {
   // bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-lg sticky top-0 z-10
 
   return (
-    <header className="flex justify-center items-center bg-[#eeebe0] py-3 sm:py-4 md:py-6 shadow-lg sticky top-0 left-0 z-10">
+    <header className="flex justify-center items-center bg-[#eeebe0] py-3 sm:py-4 md:py-4 shadow-lg sticky top-0 left-0 z-10">
       <div className="container flex justify-between items-center w-[95%]">
         {/* Logo */}
         <div className="logo font-bold text-[20px] ">OkwayHome</div>
@@ -36,10 +35,14 @@ const UserHeader = () => {
         </ul>
 
         {/* Icons */}
-        <div className="icon flex gap-5 md:gap-10">
-          <Link>
-            <MessagesSquare />
-          </Link>
+        <div className="icon flex gap-5 md:gap-10 items-center ">
+          <div className="hidden sm:block">
+            <Link to={'/user/chat'}>
+              <div className="bg-orange-400 rounded-full p-3 shadow-lg hover:bg-orange-500 transition-all duration-300">
+                <MessagesSquare className="text-white w-6 h-6" />
+              </div>
+            </Link>
+          </div>
           {/* Cart Icon with Cart Count */}
           <Link to={"/user/cart"} className="relative">
             <ShoppingBag />
@@ -73,6 +76,11 @@ const UserHeader = () => {
           </Link>
           <Link to={""}>
             <li onClick={toggleMenu}>Furnitures</li>
+          </Link>
+          <Link onClick={toggleMenu} to="/user/customer-care">
+            <li className="bg-orange-400 rounded-full p-3 shadow-lg hover:bg-orange-500 transition-all duration-300">
+              <MessagesSquare className="text-white w-6 h-6" />
+            </li>
           </Link>
         </ul>
       )}
