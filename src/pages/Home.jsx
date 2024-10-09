@@ -22,7 +22,6 @@ const Home = () => {
             </h2>
           </div>
         </main>
-
         <FilteredItems />
         <About />
         <Review />

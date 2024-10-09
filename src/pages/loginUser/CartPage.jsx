@@ -44,7 +44,7 @@ const CartPage = () => {
 
   const removeCartItem = async (product) => {
     try {
-      const response = await axiosInstants({
+      await axiosInstants({
         method: "DELETE",
         url: `/cart/remove`,
         data: { product },
@@ -59,11 +59,10 @@ const CartPage = () => {
   // Check have any user address
   const getAddress = async () => {
     try {
-      const response = await axiosInstants({
+      await axiosInstants({
         method: "GET",
         url: "/address/address",
       });
-      console.log(response, "===address");
       setIsAddress(true);
     } catch (error) {
       console.error(error);

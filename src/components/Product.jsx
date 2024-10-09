@@ -14,9 +14,6 @@ const Product = () => {
         url: "/product/list",
       });
 
-      // Log the response data to check its structure
-      console.log(response.data);
-
       // Check if response.data is an array and update the state accordingly
       if (Array.isArray(response.data)) {
         setProducts(response.data);

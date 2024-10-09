@@ -12,7 +12,7 @@ export default function SignupPage() {
   } = useForm();
   const onSubmit = async (data) => {
     try {
-      const response = await axiosInstants({
+      await axiosInstants({
         method: "POST",
         url: "/user/register",
         data,

@@ -9,8 +9,6 @@ const UserHeader = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const profileImage = useSelector((state) => state.profile.image);
 
-  console.log(profileImage, "'''profile image");
-
   // Menubar toggle function
   const toggleMenu = () => {
     setShowMenu((prevShowMenu) => !prevShowMenu);

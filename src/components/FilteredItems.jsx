@@ -1,6 +1,5 @@
 import React from "react";
 import itemData from "./FilteredData";
-console.log(itemData, "===datas");
 
 const FilteredItems = () => {
   return (

@@ -48,7 +48,7 @@ const ProductDetails = () => {
   // Add to Cart
   const addToCart = async (productId, itemName) => {
     try {
-      const response = await axiosInstants({
+      await axiosInstants({
         method: "POST",
         url: "/cart/addcart",
         data: {
