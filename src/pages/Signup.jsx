@@ -3,7 +3,6 @@ import { axiosInstants } from "../config/axiosInstants";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-
 export default function SignupPage() {
   const navigate = useNavigate()
   const {

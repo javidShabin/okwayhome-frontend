@@ -12,9 +12,6 @@ export default function EditProfile() {
     formState: { errors },
     setValue,
   } = useForm();
-
-  const navigate = useNavigate();
-
   // Fetch the user's current profile data
   useEffect(() => {
     const fetchUserData = async () => {
@@ -22,7 +19,7 @@ export default function EditProfile() {
         const response = await axiosInstants({
           method: "GET",
           url: "/user/profile", // Ensure correct endpoint
-        });;
+        });
         setUserData(response.data.data); // Assuming your backend sends user data in the `data` key
         // Pre-fill form with the user's existing data
         setValue("name", response.data.name);
@@ -34,7 +31,6 @@ export default function EditProfile() {
     };
     fetchUserData();
   }, [setValue]);
-
   // Handle form submission for profile update
   const onSubmit = async (formData) => {
     try {
@@ -43,7 +39,6 @@ export default function EditProfile() {
       updateData.append("email", formData.email);
       updateData.append("phone", formData.phone);
       if (formData.image?.[0]) updateData.append("image", formData.image[0]); // Handle file upload, check if image exists
-
       // Send the updated profile data to the backend
       await axiosInstants({
         method: "PUT",
@@ -53,15 +48,12 @@ export default function EditProfile() {
           "Content-Type": "multipart/form-data",
         },
       });
-
       toast.success("Profile updated successfully!");
-      navigate("/user/profile"); // Redirect to profile page after successful update
     } catch (error) {
       toast.error("Failed to update profile");
       console.error(error);
     }
   };
-
   return (
     <div className="flex justify-center items-center h-[87vh]">
       {userData && (
