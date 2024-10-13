@@ -36,6 +36,14 @@ const ChatPage = () => {
     }
   };
 
+  // Poll messages every 3 seconds
+  useEffect(() => {
+    if (userId) {
+      const intervalId = setInterval(fetchMessages, 1000);
+      return () => clearInterval(intervalId);
+    }
+  }, [userId]);
+
   // Send message
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -65,8 +73,7 @@ const ChatPage = () => {
         method: "DELETE",
         url: `/chat/${userId}`,
       });
-      // Clear messages from state after deletion
-      setMessages([]);
+      setMessages([]); // Clear messages from state after deletion
     } catch (error) {
       console.error("Error clearing messages:", error);
     }
@@ -76,9 +83,6 @@ const ChatPage = () => {
   useEffect(() => {
     getUserId();
   }, []);
-
-  fetchMessages();
-
 
   return (
     <div className="flex flex-col h-screen md:h-[88vh] w-full bg-gray-100">
