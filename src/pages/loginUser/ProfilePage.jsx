@@ -15,7 +15,6 @@ const ProfilePage = () => {
         url: "/user/profile",
       });
       setUserProfile(response.data);
-      console.log(response, "===user details");
     } catch (error) {
       setError("Failed to fetch user profile.");
       console.error(error);

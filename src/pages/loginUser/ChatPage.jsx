@@ -115,16 +115,16 @@ const ChatPage = () => {
                 }`}
               >
                 <div
-                  className={`max-w-[75%] sm:max-w-[65%] md:max-w-[55%] lg:max-w-[45%] px-4 py-3 rounded-lg shadow-md transition-all duration-200 ${
+                  className={` text-left max-w-[75%] sm:max-w-[65%] md:max-w-[55%] lg:max-w-[45%] px-4 py-2 rounded-lg shadow-md transition-all duration-200 ${
                     msg.sender === sender
                       ? "bg-orange-400 text-white font-semibold "
                       : "bg-purple-100 text-gray-800 border border-purple-300"
                   }`}
                 >
-                  <div className="text-xs font-bold mb-1 text-left">
-                    {msg.sender === sender ? "You" : msg.sender}
+                  <div className="text-[12px] sm:text-[16px] font-bold mb-1 text-left">
+                    {msg.sender === sender ? "You" : msg.sender}: <span>{msg.message}</span>
                   </div>
-                  <div className="text-sm leading-relaxed">{msg.message}</div>
+                  <div className="text-sm leading-relaxed"></div>
                   <div className="text-xs text-gray-500 mt-1 text-right">
                     {new Date(msg.createdAt).toLocaleTimeString([], {
                       hour: "2-digit",
