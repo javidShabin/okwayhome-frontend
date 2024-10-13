@@ -10,57 +10,62 @@ import ProductDetails from "../pages/ProductDetails";
 import CartPage from "../pages/loginUser/CartPage";
 import ProfilePage from "../pages/loginUser/ProfilePage";
 import ChatPage from "../pages/loginUser/ChatPage";
+import Address from "../pages/loginUser/Address";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Userlayout/>,
+    element: <Userlayout />,
 
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />,
       },
       {
         path: "about",
-        element: <About/>
+        element: <About />,
       },
       {
         path: "register",
-        element: <SignupPage/>
+        element: <SignupPage />,
       },
       {
         path: "login",
-        element: <LoginPage/>
+        element: <LoginPage />,
       },
       {
         path: "products",
-        element: <Product/>
+        element: <Product />,
       },
       {
         path: "product-details/:id",
-        element: <ProductDetails/>
+        element: <ProductDetails />,
       },
 
       {
         path: "user",
-        element: <AuthUser/>,
+        element: <AuthUser />,
 
         children: [
           {
             path: "profile",
-            element: <ProfilePage/>
+            element: <ProfilePage />,
           },
           {
             path: "cart",
-            element: <CartPage/>
+            element: <CartPage />,
           },
           {
             path: "chat",
-            element: <ChatPage/>
-          }
-        ]
-      }
-    ]
+            element: <ChatPage />,
+          },
+          {
+            path: "address",
+            element: <Address />,
+          },
+        ],
+      },
+    ],
   },
 ]);

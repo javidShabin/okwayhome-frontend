@@ -3,12 +3,16 @@ import { axiosInstants } from "../../config/axiosInstants";
 import { Trash2 } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { decrement } from "../../redux/features/cartSlice";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [isAddress, setIsAddress] = useState(false);
   const deliveryCharge = 50;
+
+  console.log(isAddress);
 
   const getDataFromCart = async () => {
     try {
@@ -48,14 +52,28 @@ const CartPage = () => {
         data: { product },
       });
       getDataFromCart(); // Refetch cart data after removal
-      dispatch(decrement())
+      dispatch(decrement());
     } catch (error) {
       console.error("Error removing cart item:", error);
     }
   };
 
+  // Check have any user address
+  const getAddress = async () => {
+    try {
+      const response = await axiosInstants({
+        method: "GET",
+        url: "/address/address",
+      });
+      setIsAddress(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     getDataFromCart();
+    getAddress();
   }, []);
 
   return (
@@ -156,9 +174,22 @@ const CartPage = () => {
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 mt-4">
               Grand Total: ₹{totalPrice > 0 ? totalPrice + deliveryCharge : 0}
             </h2>
-            <button className="py-2 px-4 md:px-6 mt-4 md:mt-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition duration-300">
-              Check out
-            </button>
+            {isAddress ? (
+              <button className="py-2 px-4 md:px-6 mt-4 md:mt-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition duration-300">
+                Check out
+              </button>
+            ) : (
+              <div>
+                <Link to={'/user/address'}>
+                  <button className="py-2 px-4 md:px-6 mt-4 md:mt-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition duration-300">
+                    Address
+                  </button>
+                </Link>
+                <span className="ml-5 text-red-400">
+                  Need a address for check out
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </div>

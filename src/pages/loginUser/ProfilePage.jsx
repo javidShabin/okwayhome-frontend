@@ -21,6 +21,7 @@ const ProfilePage = () => {
     }
   };
 
+  // User logout
   const logOut = async () => {
     try {
       await axiosInstants({
