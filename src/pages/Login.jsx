@@ -9,29 +9,26 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  // navigation function from react router
   const navigate = useNavigate();
-
   const onSubmit = async (data) => {
     try {
-      const response = await axiosInstants({
+      await axiosInstants({
         method: "POST",
         url: "/user/login",
         data,
       });
-      // Check for success status
-      if (response.status === 200) {
-        toast.success("User logged in");
-        navigate("/user/profile");
-      }
+      toast.success("user logged in");
+      navigate("/user/profile");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Login failed");
+      toast.error("login filed");
       console.log(error);
     }
   };
 
   return (
     <div className="flex justify-center items-center h-[87vh] bg-gray-100">
-      <img src="your-image-url-here" className="hidden sm:block" />
+      <img src="" className="hidden sm:block" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg flex flex-col"
@@ -46,9 +43,6 @@ export default function LoginPage() {
           placeholder="Name"
           {...register("name", { required: true })}
         />
-        {errors.name && (
-          <span className="text-red-500 mb-4">Name is required</span>
-        )}
 
         <input
           className="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -56,9 +50,6 @@ export default function LoginPage() {
           placeholder="Email"
           {...register("email", { required: true })}
         />
-        {errors.email && (
-          <span className="text-red-500 mb-4">Email is required</span>
-        )}
 
         <input
           className="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -66,8 +57,9 @@ export default function LoginPage() {
           placeholder="Password"
           {...register("password", { required: true })}
         />
-        {errors.password && (
-          <span className="text-red-500 mb-4">Password is required</span>
+
+        {errors.exampleRequired && (
+          <span className="text-red-500 mb-4">This field is required</span>
         )}
 
         <p className="text-gray-500">
