@@ -1,5 +1,5 @@
 import React from "react";
-import { hero } from "../assets";
+import hero from "../assets/home.jpeg";
 import FilteredItems from "../components/FilteredItems";
 import About from "./About";
 import Product from "../components/Product";

@@ -1,5 +1,6 @@
 import React from "react";
-import { about1, about2 } from "../assets";
+import about1  from "../assets/about1.jpeg";
+import about2 from "../assets/about2.jpeg"
 
 const About = () => {
   return (

@@ -1,4 +1,9 @@
-import { bed, chair, sofa, table, teapoy } from "../assets";
+
+import bed from "../assets/bed.jpeg"
+import sofa from "../assets/sofa.jpeg"
+import table from "../assets/table.jpeg"
+import teapoy from "../assets/teapoy.jpeg"
+import chair from "../assets/chair.webp"
 
 const itemData = [
     {
