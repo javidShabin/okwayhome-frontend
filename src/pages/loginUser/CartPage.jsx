@@ -12,8 +12,6 @@ const CartPage = () => {
   const [isAddress, setIsAddress] = useState(false);
   const deliveryCharge = 50;
 
-  console.log(isAddress);
-
   const getDataFromCart = async () => {
     try {
       const response = await axiosInstants({
@@ -65,6 +63,7 @@ const CartPage = () => {
         method: "GET",
         url: "/address/address",
       });
+      console.log(response, "===address");
       setIsAddress(true);
     } catch (error) {
       console.error(error);
@@ -174,13 +173,15 @@ const CartPage = () => {
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 mt-4">
               Grand Total: ₹{totalPrice > 0 ? totalPrice + deliveryCharge : 0}
             </h2>
+            <h3 className="text-xl font-bold text-red-500">Pay Advance: ₹{Math.floor(totalPrice * 0.25)}</h3>
+
             {isAddress ? (
               <button className="py-2 px-4 md:px-6 mt-4 md:mt-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition duration-300">
                 Check out
               </button>
             ) : (
               <div>
-                <Link to={'/user/address'}>
+                <Link to={"/user/address"}>
                   <button className="py-2 px-4 md:px-6 mt-4 md:mt-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition duration-300">
                     Address
                   </button>
