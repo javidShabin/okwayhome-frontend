@@ -28,7 +28,6 @@ export default function LoginPage() {
 
   return (
     <div className="flex justify-center items-center h-[87vh] bg-gray-100">
-      <img src="" className="hidden sm:block" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg flex flex-col"

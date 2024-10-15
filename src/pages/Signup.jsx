@@ -28,12 +28,6 @@ export default function SignupPage() {
 
   return (
     <div className="flex justify-center items-center h-[87vh] bg-gray-100">
-      {/* Add a valid image source or remove the img tag */}
-      <img
-        src="/path/to/your/image.jpg"
-        className="hidden sm:block"
-        alt="Background"
-      />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg flex flex-col"
