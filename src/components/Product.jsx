@@ -13,10 +13,21 @@ const Product = () => {
         method: "GET",
         url: "/product/list",
       });
-      setProducts(response.data); // Assuming the response contains product data in 'data'
+
+      // Log the response data to check its structure
+      console.log(response.data);
+
+      // Check if response.data is an array and update the state accordingly
+      if (Array.isArray(response.data)) {
+        setProducts(response.data);
+      } else {
+        console.error("Expected an array of products, but got:", response.data);
+        setProducts([]); // Handle non-array response by setting products to an empty array
+      }
+
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching products:", error);
       setLoading(false);
     }
   };
@@ -28,10 +39,11 @@ const Product = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center">
-        <span className="loading loading-dots loading-lg bg-gradient-to-r from-yellow-500 to-orange-600 "></span>
+        <span className="loading loading-dots loading-lg bg-gradient-to-r from-yellow-500 to-orange-600"></span>
       </div>
     ); // Optionally show a loading indicator
   }
+
   return (
     <main className="px-4 py-8 bg-white min-h-screen">
       <h1 className="text-4xl font-semibold text-center mb-8 text-gray-900">
