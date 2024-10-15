@@ -19,6 +19,7 @@ export default function Address() {
       setUserId(response.data._id);
     } catch (error) {
       console.error("Error fetching user ID:", error);
+      toast.error("Failed to fetch user profile.");
     }
   };
 
@@ -29,6 +30,12 @@ export default function Address() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    if (!userId) {
+      toast.error("User ID is not available.");
+      return;
+    }
+
+    setLoading(true); // Set loading state to true
     try {
       const response = await axiosInstants({
         method: "POST",
@@ -36,12 +43,14 @@ export default function Address() {
         data: { ...data, user: userId },
       });
       navigate("/user/cart");
-      toast.success(response.data.message)
+      toast.success(response.data.message);
     } catch (error) {
       console.error(error);
-      toast.error(error.response.data.message)
+      toast.error(
+        error.response?.data?.message || "An error occurred. Please try again."
+      );
     } finally {
-      setLoading(false);
+      setLoading(false); // Reset loading state
     }
   };
 

@@ -5,10 +5,11 @@ const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [userId, setUserId] = useState(null);
-  const [userName, setUSerName] = useState(null);
+  const [userName, setUserName] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [sending, setSending] = useState(false);
   const sender = "user";
 
-  // Get user Id
   const getUserId = async () => {
     try {
       const response = await axiosInstants({
@@ -16,13 +17,14 @@ const ChatPage = () => {
         url: "/user/profile",
       });
       setUserId(response.data._id);
-      setUSerName(response.data.name);
+      setUserName(response.data.name);
     } catch (error) {
       console.error("Error fetching user ID:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Fetch messages
   const fetchMessages = async () => {
     if (!userId) return;
     try {
@@ -36,19 +38,17 @@ const ChatPage = () => {
     }
   };
 
-  // Poll messages every 3 seconds
   useEffect(() => {
     if (userId) {
-      const intervalId = setInterval(fetchMessages, 1000);
+      const intervalId = setInterval(fetchMessages, 3000);
       return () => clearInterval(intervalId);
     }
   }, [userId]);
 
-  // Send message
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!newMessage || !userId) return;
-
+    setSending(true);
     try {
       const response = await axiosInstants({
         method: "POST",
@@ -63,10 +63,11 @@ const ChatPage = () => {
       setNewMessage("");
     } catch (error) {
       console.error("Error sending message:", error);
+    } finally {
+      setSending(false);
     }
   };
 
-  // Clear all messages
   const removeAllMessage = async () => {
     try {
       await axiosInstants({
@@ -79,10 +80,11 @@ const ChatPage = () => {
     }
   };
 
-  // Fetch userId on component mount
   useEffect(() => {
     getUserId();
   }, []);
+
+  if (loading) return <p>Loading...</p>; // Loading indicator
 
   return (
     <div className="flex flex-col h-screen md:h-[88vh] w-full bg-gray-100">
@@ -93,7 +95,6 @@ const ChatPage = () => {
           <div className="text-sm">
             User: {userName ? userName : "Loading..."}
           </div>
-          {/* Clear Chat Button */}
           <button
             onClick={removeAllMessage}
             className="bg-red-600 text-white px-3 py-1 rounded-full hover:bg-red-700 text-xs sm:text-base"
@@ -115,16 +116,16 @@ const ChatPage = () => {
                 }`}
               >
                 <div
-                  className={` text-left max-w-[75%] sm:max-w-[65%] md:max-w-[55%] lg:max-w-[45%] px-4 py-2 rounded-lg shadow-md transition-all duration-200 ${
+                  className={`text-left max-w-[75%] sm:max-w-[65%] md:max-w-[55%] lg:max-w-[45%] px-4 py-2 rounded-lg shadow-md transition-all duration-200 ${
                     msg.sender === sender
-                      ? "bg-orange-400 text-white font-semibold "
+                      ? "bg-orange-400 text-white font-semibold"
                       : "bg-purple-100 text-gray-800 border border-purple-300"
                   }`}
                 >
                   <div className="text-[12px] sm:text-[16px] font-bold mb-1 text-left">
-                    {msg.sender === sender ? "You" : msg.sender}: <span>{msg.message}</span>
+                    {msg.sender === sender ? "You" : msg.sender}:{" "}
+                    <span>{msg.message}</span>
                   </div>
-                  <div className="text-sm leading-relaxed"></div>
                   <div className="text-xs text-gray-500 mt-1 text-right">
                     {new Date(msg.createdAt).toLocaleTimeString([], {
                       hour: "2-digit",
@@ -155,9 +156,12 @@ const ChatPage = () => {
           />
           <button
             type="submit"
-            className="bg-orange-400 text-white font-semibold px-4 py-2 rounded-full hover:bg-orange-500 text-xs sm:text-base"
+            className={`bg-orange-400 text-white font-semibold px-4 py-2 rounded-full hover:bg-orange-500 text-xs sm:text-base ${
+              sending ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={sending}
           >
-            Send
+            {sending ? "Sending..." : "Send"}
           </button>
         </form>
       </div>

@@ -69,7 +69,7 @@ const CartPage = () => {
       console.error(error);
     }
   };
-
+  
   useEffect(() => {
     getDataFromCart();
     getAddress();

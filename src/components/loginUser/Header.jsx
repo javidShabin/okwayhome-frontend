@@ -9,20 +9,18 @@ const UserHeader = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const profileImage = useSelector((state) => state.profile.image);
 
-  console.log(profileImage, "'''profile iahe");
+  console.log(profileImage, "'''profile image");
 
   // Menubar toggle function
   const toggleMenu = () => {
     setShowMenu((prevShowMenu) => !prevShowMenu);
   };
 
-  // bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-lg sticky top-0 z-10
-
   return (
     <header className="flex justify-center items-center bg-[#eeebe0] py-3 sm:py-4 md:py-4 shadow-lg sticky top-0 left-0 z-10">
       <div className="container flex justify-between items-center w-[95%]">
         {/* Logo */}
-        <div className="logo font-bold text-[20px] ">OkwayHome</div>
+        <div className="logo font-bold text-[20px]">OkwayHome</div>
 
         {/* Desktop Menu */}
         <ul className="hidden sm:flex font-semibold gap-10 sm:gap-16 cursor-pointer">
@@ -38,7 +36,7 @@ const UserHeader = () => {
         </ul>
 
         {/* Icons */}
-        <div className="icon flex gap-5 md:gap-10 items-center ">
+        <div className="icon flex gap-5 md:gap-10 items-center">
           <div className="hidden sm:block">
             <Link to={"/user/chat"}>
               <div className="bg-orange-400 rounded-full p-3 shadow-lg hover:bg-orange-500 transition-all duration-300">
@@ -46,6 +44,7 @@ const UserHeader = () => {
               </div>
             </Link>
           </div>
+
           {/* Cart Icon with Cart Count */}
           <Link to={"/user/cart"} className="relative">
             <ShoppingBag />
@@ -55,12 +54,17 @@ const UserHeader = () => {
               </span>
             )}
           </Link>
+
           <Link to={"/user/profile"}>
             <div className="w-[40px] h-[40px]">
               <img
-                src={profileImage}
+                src={profileImage || "/path/to/fallback/image.jpg"} // Add a fallback image here
                 className="rounded-full w-full h-full object-cover"
                 alt="Profile"
+                onError={(e) => {
+                  e.target.onerror = null; // Prevents infinite loop in case of failure
+                  e.target.src = "/path/to/fallback/image.jpg"; // Fallback image
+                }}
               />
             </div>
           </Link>
@@ -77,14 +81,14 @@ const UserHeader = () => {
       {/* Mobile Menu */}
       {showMenu && (
         <ul className="absolute top-[100%] left-0 w-full bg-white shadow-lg flex flex-col items-center gap-6 py-6 font-semibold sm:hidden transition duration-300 ease-in-out">
-          <Link to={"/"}>
-            <li onClick={toggleMenu}>Home</li>
+          <Link to={"/"} onClick={toggleMenu}>
+            <li>Home</li>
           </Link>
-          <Link to={"/about"}>
-            <li onClick={toggleMenu}>About</li>
+          <Link to={"/about"} onClick={toggleMenu}>
+            <li>About</li>
           </Link>
-          <Link to={"/products"}>
-            <li onClick={toggleMenu}>Furnitures</li>
+          <Link to={"/products"} onClick={toggleMenu}>
+            <li>Furnitures</li>
           </Link>
           <Link to={"/user/chat"} onClick={toggleMenu}>
             <li className="bg-orange-400 rounded-full p-3 shadow-lg hover:bg-orange-500 transition-all duration-300">

@@ -22,8 +22,7 @@ export default function EditProfile() {
         const response = await axiosInstants({
           method: "GET",
           url: "/user/profile", // Ensure correct endpoint
-        });
-        console.log(response);
+        });;
         setUserData(response.data.data); // Assuming your backend sends user data in the `data` key
         // Pre-fill form with the user's existing data
         setValue("name", response.data.name);
