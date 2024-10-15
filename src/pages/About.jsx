@@ -1,5 +1,6 @@
 import React from "react";
-
+import about1 from "../assets/about1.jpeg"
+import about2 from "../assets/about2.jpeg"
 
 const About = () => {
   return (
@@ -9,22 +10,18 @@ const About = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
           Welcome to Okway Home Decore
         </h2>
-
+        
         {/* Description */}
         <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          At Okway Home Decore, we believe that your home should reflect your
-          personality, comfort, and style. We provide premium home decor
-          products, handpicked for quality and design. Whether you're looking to
-          refresh your living space or completely transform your home, we have
-          everything you need to make it happen.
+          At Okway Home Decore, we believe that your home should reflect your personality, comfort, and style. We provide premium home decor products, handpicked for quality and design. Whether you're looking to refresh your living space or completely transform your home, we have everything you need to make it happen.
         </p>
-
+        
         {/* Image and Text Sections */}
         <div className="md:flex md:justify-center md:space-x-12">
           {/* Mission Section */}
           <div className="mb-8 md:mb-0 md:w-1/3">
             <img
-              src="https://images.unsplash.com/photo-1576158113928-4c240eaaf360?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+              src={about1}
               alt="A beautifully styled living room showcasing artistic decor"
               className="w-full h-56 object-cover mb-4 rounded-lg shadow-md"
             />
@@ -32,17 +29,14 @@ const About = () => {
               Our Mission
             </h3>
             <p className="text-gray-600">
-              Our mission is to bring the beauty of artistic decor into every
-              home, providing inspiration and elegance to each space. We aim to
-              combine functionality and style to help you create a living
-              environment that is truly your own.
+              Our mission is to bring the beauty of artistic decor into every home, providing inspiration and elegance to each space. We aim to combine functionality and style to help you create a living environment that is truly your own.
             </p>
           </div>
 
           {/* Why Choose Us Section */}
           <div className="md:w-1/3">
             <img
-              src="https://images.unsplash.com/photo-1576158113928-4c240eaaf360?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+              src={about2}
               alt="A selection of curated home decor items showcasing various styles"
               className="w-full h-56 object-cover mb-4 rounded-lg shadow-md"
             />
@@ -50,10 +44,7 @@ const About = () => {
               Why Choose Us?
             </h3>
             <p className="text-gray-600">
-              We offer a carefully curated selection of home decor items,
-              ensuring that each piece not only looks beautiful but is also of
-              the highest quality. From modern minimalism to classic elegance,
-              we have styles to suit every taste.
+              We offer a carefully curated selection of home decor items, ensuring that each piece not only looks beautiful but is also of the highest quality. From modern minimalism to classic elegance, we have styles to suit every taste.
             </p>
           </div>
         </div>
