@@ -9,7 +9,7 @@ import Product from "../components/Product";
 import ProductDetails from "../pages/ProductDetails";
 import CartPage from "../pages/loginUser/CartPage";
 import ProfilePage from "../pages/loginUser/ProfilePage";
-import ChatPage from "../pages/loginUser/ChatPage";
+
 import Address from "../pages/loginUser/Address";
 
 export const router = createBrowserRouter([
@@ -56,10 +56,7 @@ export const router = createBrowserRouter([
             path: "cart",
             element: <CartPage />,
           },
-          {
-            path: "chat",
-            element: <ChatPage />,
-          },
+          
           {
             path: "address",
             element: <Address />,
