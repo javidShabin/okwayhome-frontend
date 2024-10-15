@@ -1,6 +1,5 @@
 import React from "react";
-import about1  from "../assets/about1.jpeg";
-import about2 from "../assets/about2.jpeg"
+
 
 const About = () => {
   return (
@@ -25,7 +24,7 @@ const About = () => {
           {/* Mission Section */}
           <div className="mb-8 md:mb-0 md:w-1/3">
             <img
-              src={about1}
+              src="https://images.unsplash.com/photo-1576158113928-4c240eaaf360?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
               alt="A beautifully styled living room showcasing artistic decor"
               className="w-full h-56 object-cover mb-4 rounded-lg shadow-md"
             />
@@ -43,7 +42,7 @@ const About = () => {
           {/* Why Choose Us Section */}
           <div className="md:w-1/3">
             <img
-              src={about2}
+              src="https://images.unsplash.com/photo-1576158113928-4c240eaaf360?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
               alt="A selection of curated home decor items showcasing various styles"
               className="w-full h-56 object-cover mb-4 rounded-lg shadow-md"
             />
