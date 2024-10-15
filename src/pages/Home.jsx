@@ -3,6 +3,7 @@ import React from "react";
 
 import About from "./About";
 import Review from "./Review";
+import FilteredItems from "../components/FilteredItems";
 
 const Home = () => {
   return (
@@ -22,7 +23,7 @@ const Home = () => {
           </div>
         </main>
 
-        
+        <FilteredItems/>
         <About />
         <Review />
 
