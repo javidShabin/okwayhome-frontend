@@ -1,8 +1,7 @@
 import React from "react";
 
-import FilteredItems from "../components/FilteredItems";
+
 import About from "./About";
-import Product from "../components/Product";
 import Review from "./Review";
 
 const Home = () => {
@@ -23,10 +22,10 @@ const Home = () => {
           </div>
         </main>
 
-        <FilteredItems />
+        
         <About />
         <Review />
-        <Product />
+
       </div>
     </>
   );
