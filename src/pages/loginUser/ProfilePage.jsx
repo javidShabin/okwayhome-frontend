@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { axiosInstants } from "../../config/axiosInstants";
 import { useNavigate } from "react-router-dom";
-import EditProfile from "../../components/loginUser/EditProfile";
+// import EditProfile from "../../components/loginUser/EditProfile";
 import { useDispatch } from "react-redux";
 import { setProfileImage } from "../../redux/features/profileSlice";
 
@@ -125,7 +125,7 @@ const ProfilePage = () => {
             >
               ✕ {/* Close button */}
             </button>
-            <EditProfile />
+            {/* <EditProfile /> */}
           </div>
         </div>
       )}
