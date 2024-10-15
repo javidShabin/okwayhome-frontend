@@ -4,6 +4,7 @@ import React from "react";
 import About from "./About";
 import Review from "./Review";
 import FilteredItems from "../components/FilteredItems";
+import Product from "../components/Product";
 
 const Home = () => {
   return (
@@ -26,7 +27,7 @@ const Home = () => {
         <FilteredItems/>
         <About />
         <Review />
-
+         <Product/>
       </div>
     </>
   );

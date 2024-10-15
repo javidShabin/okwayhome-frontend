@@ -41,7 +41,14 @@ const Product = () => {
   }
 
   return (
-    <main className="px-4 py-8 bg-white min-h-screen">
+    <>
+    <h1 className="text-red-500">Product</h1>
+    </>
+  );
+};
+
+export default Product;
+{/* <main className="px-4 py-8 bg-white min-h-screen">
       <h1 className="text-4xl font-semibold text-center mb-8 text-gray-900">
         Our Modern Collection
       </h1>
@@ -75,8 +82,4 @@ const Product = () => {
           <p className="text-center text-gray-500">No products available</p>
         )}
       </div>
-    </main>
-  );
-};
-
-export default Product;
+    </main> */}
