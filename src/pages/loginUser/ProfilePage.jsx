@@ -35,9 +35,7 @@ const ProfilePage = () => {
 
   // User logout
   const logOut = async () => {
-    const confirmLogout = window.confirm("Are you sure you want to log out?");
-    if (!confirmLogout) return; // Stop if user cancels
-
+  
     try {
       await axiosInstants({
         method: "POST",

@@ -16,16 +16,16 @@ export default function SignupPage() {
       const response = await axiosInstants({
         method: "POST",
         url: "/user/register",
-        data,
-      });
-      toast.success("User created successfully");
-      navigate("/");
+        data
+      })
+      console.log(response)
+      navigate('/')
+      toast.success("Registered")
     } catch (error) {
-      toast.error(error.response.data.message);
-      console.log(error);
+      
     }
   };
-
+  
   return (
     <div className="flex justify-center items-center h-[87vh] bg-gray-100">
       <form

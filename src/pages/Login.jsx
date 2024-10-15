@@ -2,8 +2,11 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosInstants } from "../config/axiosInstants";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { clearUser, saveUser } from "../redux/features/userSlice";
 
 export default function LoginPage() {
+  const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
@@ -18,9 +21,11 @@ export default function LoginPage() {
         url: "/user/login",
         data,
       });
+      dispatch(saveUser())
       toast.success("user logged in");
       navigate("/user/profile");
     } catch (error) {
+      dispatch(clearUser())
       toast.error("login filed");
       console.log(error);
     }
