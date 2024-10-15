@@ -1,5 +1,6 @@
 import React from "react";
 import itemData from "./FilteredData";
+console.log(itemData, "===datas")
 
 const FilteredItems = () => {
   return (
@@ -14,18 +15,7 @@ const FilteredItems = () => {
           <div className="flex justify-center">
             <div className="w-full overflow-x-auto">
               <div className="w-max mx-auto grid grid-flow-col auto-cols-[250px] px-10 md:px-0 gap-14 xl:gap-28 mt-9 sm:grid-cols-3 lg:grid-cols-5">
-                {itemData.map((item, index) => (
-                  <div key={item.id || index} className="flex flex-col items-center">
-                    <div className="relative group">
-                      <img
-                        src={item.imgSrc}
-                        alt={item.name}
-                        className="rounded-md w-[250px] xl:w-[200px] mx-auto transition-transform duration-300 ease-in-out group-hover:scale-105 shadow-md"
-                      />
-                    </div>
-                    <span className="mt-2 text-center">{item.name}</span>
-                  </div>
-                ))}
+                {/* Here we need */}
               </div>
             </div>
           </div>
@@ -36,3 +26,15 @@ const FilteredItems = () => {
 };
 
 export default FilteredItems;
+// {itemData.map((item, index) => (
+//   <div key={item.id || index} className="flex flex-col items-center">
+//     <div className="relative group">
+//       <img
+//         src={item.imgSrc}
+//         alt={item.name}
+//         className="rounded-md w-[250px] xl:w-[200px] mx-auto transition-transform duration-300 ease-in-out group-hover:scale-105 shadow-md"
+//       />
+//     </div>
+//     <span className="mt-2 text-center">{item.name}</span>
+//   </div>
+// ))}
